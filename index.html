@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Prestige Apparel Hero</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section class="hero">
+
+        <nav class="nav">
+            <a class="logo" href="#">Prestige Apparel</a>
+            <a class="l1" href="#">Homepage</a>
+            <a class="l2" href="#">Product</a>
+            <a class="l3" href="#">Fabric</a>
+            <a class="l4" href="#">About Us</a>
+            <a class="l5" href="#">Contact Us</a>
+            <a class="l6" href="#">Get Started</a>
+        </nav>
+
+        <svg class="blob" viewBox="0 0 790 528" preserveAspectRatio="none" aria-hidden="true">
+            <path fill="#C6920B" d="M474 0 C494 14 520 20 508 40 C498 58 520 66 513 84
+        C506 104 528 112 516 130 C502 150 470 150 477 168 C484 186 508 192 503 210
+        C498 232 470 238 468 262 C466 284 492 290 497 306 C502 322 470 330 460 352
+        C452 372 470 392 450 440 C440 470 436 500 432 528 L790 528 L790 0 Z" />
+        </svg>
+
+        <h1 class="headline">
+            Where Style<br>Meets
+            <span class="swap"><span class="word" id="word">Luxury</span></span>
+        </h1>
+
+        <p class="tagline">Define your style with Prestige Apparel where every piece speaks power, confidence, and
+            undeniable presence.</p>
+
+        <a class="cta" href="#">Subscribe Now.</a>
+
+        <svg class="arc" viewBox="0 0 790 561" aria-hidden="true">
+            <defs>
+                <path id="arcPath" d="M 524 185 A 160 160 0 0 1 782 178" />
+            </defs>
+            <text>
+                <textPath href="#arcPath" startOffset="2%">Prestige Apparel</textPath>
+            </text>
+        </svg>
+
+        <div class="card">
+            <img class="model" src="model.jpg" alt="Model wearing Prestige Apparel">
+            <div class="badge">Prestige<br>Apparel</div>
+        </div>
+
+    </section>
+
+    <script>
+        // Headline word rotation (slides up). Opens on "Luxury" so Figma captures that state.
+        const words = ["Luxury", "Comfort", "Purpose", "Innovation", "Excellence", "Confidence", "Success", "Power"];
+        const el = document.getElementById("word");
+        let i = 0;
+        setInterval(() => {
+            el.classList.add("out");
+            setTimeout(() => {
+                i = (i + 1) % words.length;
+                el.textContent = words[i];
+                el.classList.remove("out");
+                el.classList.add("in");
+                setTimeout(() => el.classList.remove("in"), 360);
+            }, 350);
+        }, 2000);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,264 @@
+/* Prestige Apparel – Hero */
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+:root {
+    --bg: #F5BC4E;
+    --blob: #C6920B;
+    --ink: #0A0A0A;
+    --accent: #B55AA9;
+    --box: #F3C168;
+    --btn: #BE8B3B;
+    --nav-hover: #D0910A;
+    --font: "Audiowide", "Orbitron", "Michroma", system-ui, sans-serif;
+}
+
+html,
+body {
+    background: #111;
+    min-height: 100%
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    padding: 32px 0;
+    font-family: var(--font)
+}
+
+/* Fixed 790 x 561 frame: maps 1:1 to a Figma frame */
+.hero {
+    position: relative;
+    width: 790px;
+    height: 561px;
+    background: var(--bg);
+    overflow: hidden
+}
+
+/* ---------- NAV ---------- */
+.nav {
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 33px;
+    z-index: 5;
+    background: linear-gradient(100deg, #F6B21E 0%, #EE7C15 45%, #E1300F 100%);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .35)
+}
+
+.nav a {
+    position: absolute;
+    top: 4px;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 11.5px;
+    letter-spacing: .6px;
+    white-space: nowrap;
+    border-radius: 8px;
+    transition: background-color .25s ease, transform .25s ease
+}
+
+.nav a:not(.logo):hover {
+    background: var(--nav-hover)
+}
+
+.nav .logo {
+    left: 0
+}
+
+.nav .l1 {
+    left: 183px
+}
+
+.nav .l2 {
+    left: 282px
+}
+
+.nav .l3 {
+    left: 370px
+}
+
+.nav .l4 {
+    left: 439px
+}
+
+.nav .l5 {
+    left: 539px
+}
+
+.nav .l6 {
+    left: 660px
+}
+
+/* ---------- BLOB ---------- */
+.blob {
+    position: absolute;
+    top: 33px;
+    left: 0;
+    width: 790px;
+    height: 528px
+}
+
+/* ---------- HEADLINE ---------- */
+.headline {
+    position: absolute;
+    left: 58px;
+    top: 81px;
+    font-size: 32px;
+    line-height: 55px;
+    font-weight: 400;
+    letter-spacing: .5px;
+    color: var(--ink)
+}
+
+.headline .swap {
+    display: inline-block;
+    height: 55px;
+    overflow: hidden;
+    vertical-align: top
+}
+
+.headline .word {
+    display: block;
+    color: var(--accent)
+}
+
+.headline .word.out {
+    animation: out .35s ease forwards
+}
+
+.headline .word.in {
+    animation: in .35s ease forwards
+}
+
+@keyframes out {
+    to {
+        transform: translateY(-100%);
+        opacity: 0
+    }
+}
+
+@keyframes in {
+    from {
+        transform: translateY(100%);
+        opacity: 0
+    }
+
+    to {
+        transform: none;
+        opacity: 1
+    }
+}
+
+/* ---------- TAGLINE ---------- */
+.tagline {
+    position: absolute;
+    left: 14px;
+    top: 232px;
+    width: 459px;
+    height: 118px;
+    display: flex;
+    align-items: center;
+    padding: 0 3px;
+    background: var(--box);
+    border: 1px solid var(--ink);
+    border-radius: 18px;
+    font-size: 14.5px;
+    line-height: 17.5px;
+    letter-spacing: .2px;
+    color: var(--ink)
+}
+
+/* ---------- CTA ---------- */
+.cta {
+    position: absolute;
+    left: 98px;
+    top: 376px;
+    width: 248px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--btn);
+    border: 1px solid #3d2a0a;
+    border-radius: 22px;
+    color: #fff;
+    font-size: 22px;
+    letter-spacing: .8px;
+    text-decoration: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
+    cursor: pointer;
+    transition: color .25s ease
+}
+
+.cta:hover {
+    color: var(--ink)
+}
+
+/* ---------- MODEL CARD ---------- */
+.card {
+    position: absolute;
+    left: 519px;
+    top: 202px;
+    width: 263px;
+    height: 349px;
+    border: 2px solid var(--ink);
+    border-radius: 38px;
+    overflow: hidden;
+    background: #d9cdb2;
+}
+
+.model {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.badge {
+    z-index: 1
+}
+
+.badge {
+    position: absolute;
+    left: 99px;
+    top: 28px;
+    width: 132px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: var(--blob);
+    border: 1px solid var(--ink);
+    border-radius: 20px;
+    font-size: 15px;
+    line-height: 17px;
+    color: var(--ink)
+}
+
+/* ---------- ARCHED LABEL ---------- */
+.arc {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 790px;
+    height: 561px;
+    pointer-events: none
+}
+
+.arc text {
+    font-family: var(--font);
+    font-size: 27px;
+    letter-spacing: 1px;
+    fill: var(--ink)
+}
