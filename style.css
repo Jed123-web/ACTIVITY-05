@@ -4,7 +4,7 @@
 * {
     box-sizing: border-box;
     margin: 0;
-    padding: 0
+    padding: 0;
 }
 
 :root {
@@ -21,171 +21,183 @@
 html,
 body {
     background: #111;
-    min-height: 100%
+    min-height: 100%;
 }
 
 body {
     display: flex;
     justify-content: center;
-    padding: 32px 0;
-    font-family: var(--font)
+    padding: 32px 16px;
+    font-family: var(--font);
 }
 
-/* Fixed 790 x 561 frame: maps 1:1 to a Figma frame */
-.hero {
-    position: relative;
-    width: 790px;
-    height: 561px;
+.page {
+    width: 100%;
+    max-width: 960px;
     background: var(--bg);
-    overflow: hidden
+    overflow: hidden;
 }
 
-/* ---------- NAV ---------- */
-.nav {
-    position: absolute;
-    inset: 0 0 auto 0;
-    height: 33px;
+/* ---------- NAV (Flexbox) ---------- */
+.site-header {
+    position: relative;
     z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 4px 12px;
+    min-height: 33px;
     background: linear-gradient(100deg, #F6B21E 0%, #EE7C15 45%, #E1300F 100%);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, .35)
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .35);
 }
 
-.nav a {
-    position: absolute;
-    top: 4px;
+.site-header a {
+    display: block;
+    padding: 0 10px;
     height: 25px;
     line-height: 25px;
-    padding: 0 10px;
     color: #fff;
     text-decoration: none;
     font-size: 11.5px;
     letter-spacing: .6px;
     white-space: nowrap;
     border-radius: 8px;
-    transition: background-color .25s ease, transform .25s ease
+    transition: background-color .25s ease;
 }
 
-.nav a:not(.logo):hover {
-    background: var(--nav-hover)
+.site-header a:hover {
+    background: var(--nav-hover);
 }
 
-.nav .logo {
-    left: 0
+.site-header .logo {
+    padding-left: 0;
 }
 
-.nav .l1 {
-    left: 183px
+.site-header .logo:hover {
+    background: none;
 }
 
-.nav .l2 {
-    left: 282px
+.nav {
+    flex: 1;
 }
 
-.nav .l3 {
-    left: 370px
+.nav-list {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    max-width: 600px;
+    margin-left: auto;
 }
 
-.nav .l4 {
-    left: 439px
+/* ---------- HERO (Grid) ---------- */
+.hero {
+    position: relative;
+    padding: 40px 0 0;
+    min-height: 528px;
 }
 
-.nav .l5 {
-    left: 539px
-}
-
-.nav .l6 {
-    left: 660px
-}
-
-/* ---------- BLOB ---------- */
 .blob {
     position: absolute;
-    top: 33px;
+    top: 0;
     left: 0;
-    width: 790px;
-    height: 528px
+    width: 100%;
+    height: 100%;
+}
+
+.hero-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.75fr 1fr;
+    gap: 0 24px;
+    align-items: start;
+    padding: 0 8px 12px 14px;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    gap: 28px;
 }
 
 /* ---------- HEADLINE ---------- */
 .headline {
-    position: absolute;
-    left: 58px;
-    top: 81px;
-    font-size: 32px;
-    line-height: 55px;
+    padding: 0 0 0 44px;
+    margin-top: 8px;
+    font-size: clamp(24px, 4vw, 32px);
+    line-height: 1.7;
     font-weight: 400;
     letter-spacing: .5px;
-    color: var(--ink)
+    color: var(--ink);
 }
 
 .headline .swap {
     display: inline-block;
-    height: 55px;
+    height: 1.7em;
     overflow: hidden;
-    vertical-align: top
+    vertical-align: top;
 }
 
 .headline .word {
     display: block;
-    color: var(--accent)
+    color: var(--accent);
 }
 
 .headline .word.out {
-    animation: out .35s ease forwards
+    animation: out .35s ease forwards;
 }
 
 .headline .word.in {
-    animation: in .35s ease forwards
+    animation: in .35s ease forwards;
 }
 
 @keyframes out {
     to {
         transform: translateY(-100%);
-        opacity: 0
+        opacity: 0;
     }
 }
 
 @keyframes in {
     from {
         transform: translateY(100%);
-        opacity: 0
+        opacity: 0;
     }
 
     to {
         transform: none;
-        opacity: 1
+        opacity: 1;
     }
 }
 
 /* ---------- TAGLINE ---------- */
 .tagline {
-    position: absolute;
-    left: 14px;
-    top: 232px;
-    width: 459px;
-    height: 118px;
     display: flex;
     align-items: center;
-    padding: 0 3px;
+    min-height: 118px;
+    padding: 12px 6px;
     background: var(--box);
     border: 1px solid var(--ink);
     border-radius: 18px;
     font-size: 14.5px;
-    line-height: 17.5px;
+    line-height: 1.2;
     letter-spacing: .2px;
-    color: var(--ink)
+    color: var(--ink);
 }
 
 /* ---------- CTA ---------- */
+.cta-wrap {
+    display: flex;
+    padding-left: 84px;
+}
+
 .cta {
-    position: absolute;
-    left: 98px;
-    top: 376px;
-    width: 248px;
-    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 248px;
+    max-width: 100%;
+    height: 80px;
     background: var(--btn);
     border: 1px solid #3d2a0a;
     border-radius: 22px;
@@ -194,21 +206,40 @@ body {
     letter-spacing: .8px;
     text-decoration: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .25);
-    cursor: pointer;
-    transition: color .25s ease
+    transition: color .25s ease;
 }
 
 .cta:hover {
-    color: var(--ink)
+    color: var(--ink);
 }
 
-/* ---------- MODEL CARD ---------- */
+/* ---------- VISUAL: ARC + MODEL CARD ---------- */
+.hero-visual {
+    display: flex;
+    flex-direction: column;
+    align-self: end;
+    width: 100%;
+    max-width: 263px;
+    justify-self: end;
+}
+
+.arc {
+    display: block;
+    width: 100%;
+    margin-bottom: -4px;
+    overflow: visible;
+}
+
+.arc text {
+    font-family: var(--font);
+    font-size: 27px;
+    letter-spacing: 1px;
+    fill: var(--ink);
+}
+
 .card {
-    position: absolute;
-    left: 519px;
-    top: 202px;
-    width: 263px;
-    height: 349px;
+    position: relative;
+    aspect-ratio: 263 / 349;
     border: 2px solid var(--ink);
     border-radius: 38px;
     overflow: hidden;
@@ -224,41 +255,92 @@ body {
     object-position: center;
 }
 
-.badge {
-    z-index: 1
+/* Covers the "SIMPLE TEXT" label baked into the stock image, as in the Figma design */
+.card::before {
+    content: "";
+    position: absolute;
+    top: 11%;
+    left: 32%;
+    width: 64%;
+    height: 10%;
+    background: #E3D7BF;
+    z-index: 1;
 }
 
 .badge {
     position: absolute;
-    left: 99px;
     top: 28px;
-    width: 132px;
-    height: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 132px;
+    height: 40px;
     text-align: center;
     background: var(--blob);
     border: 1px solid var(--ink);
     border-radius: 20px;
     font-size: 15px;
     line-height: 17px;
-    color: var(--ink)
+    color: var(--ink);
 }
 
-/* ---------- ARCHED LABEL ---------- */
-.arc {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 790px;
-    height: 561px;
-    pointer-events: none
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+    .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px 12px;
+    }
+
+    .nav {
+        width: 100%;
+    }
+
+    .nav-list {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 4px;
+        max-width: none;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 0 16px 24px;
+    }
+
+    .blob {
+        height: 55%;
+        top: auto;
+        bottom: 0;
+    }
+
+    .headline {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .cta-wrap {
+        padding-left: 0;
+        justify-content: center;
+    }
+
+    .hero-visual {
+        justify-self: center;
+        align-self: center;
+    }
 }
 
-.arc text {
-    font-family: var(--font);
-    font-size: 27px;
-    letter-spacing: 1px;
-    fill: var(--ink)
+@media (max-width: 420px) {
+    .tagline {
+        font-size: 13px;
+    }
+
+    .cta {
+        height: 64px;
+        font-size: 18px;
+    }
 }
