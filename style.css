@@ -1,5 +1,5 @@
 /* Prestige Apparel – Hero */
-@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
 
 * {
     box-sizing: border-box;
@@ -15,7 +15,7 @@
     --box: #F3C168;
     --btn: #BE8B3B;
     --nav-hover: #D0910A;
-    --font: "Audiowide", "Orbitron", "Michroma", system-ui, sans-serif;
+    --font: "Orbitron", system-ui, sans-serif;
 }
 
 html,
